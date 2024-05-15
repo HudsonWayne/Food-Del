@@ -26,6 +26,7 @@
 import {menu_list} from '../../assets/assets'
 import './ExploreMenu.css'
 
+
 const ExploreMenu = ({category, setCategory}) => {
   return (
     <div className="explore-menu"id='explore-menu'>
