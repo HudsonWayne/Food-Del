@@ -21,3 +21,22 @@
 .app-download-platforms img{
     transform: scale(1.05);
 }
+@media (max-width:1050px) {
+    navbar .logo{
+        width: 120px;
+    }
+    .navbar-menu{
+        gap: 20px;
+        font-size: 16px;
+    }
+    .navbar-right{
+        gap: 20px;
+    }
+    .navbar-right img{
+        width: 20px;
+    }
+    .navbar-right button{
+        padding: 7px 20px;
+        font-size: 15px;
+    }
+}
