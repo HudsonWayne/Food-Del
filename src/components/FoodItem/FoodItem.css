@@ -37,10 +37,10 @@
     font-weight: 500;
     margin: 10px 0px;
 }
-.food-item-image-container{
+.food-item-img-container{
     position: relative;
 }
-.food-item-image-container .add{
+.food-item-img-container .add{
     width: 35px;
     position: absolute;
     bottom: 15px;
