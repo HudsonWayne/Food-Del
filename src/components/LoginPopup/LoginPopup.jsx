@@ -6,6 +6,10 @@ import { assets } from '../../assets/assets'
 export const LoginPopup = (props) => {
 
     const [currState, setCurrState] = useState("Login")
+    console.log('====================================');
+    console.log(currState);
+    console.log('====================================');
+
 
   return (
     <div className="login-popup">
@@ -19,7 +23,16 @@ export const LoginPopup = (props) => {
                 <input type="email" placeholder='Your email' required/>
                 <input type="password" placeholder='Password' required/>
             </div>
-            <button>{currState==="Sign Up"?"Create account":"Login"}</button>
+            <button>{currState=== "Sign Up"?"Create account":"Login"}</button>
+            <div className="login-popup-condition">
+                <input type="checkbox" />
+                <p>By continuing, is agree to the  terms of use & privacy policy.</p>
+            </div>
+            {currState === "Login"
+            ?<p>Create a new account? <span onClick={()=>setCurrState('Sign Up')}>Create Account</span></p>
+            :<p>Already have an account? <span  onClick={()=> setCurrState('Login') }>Sign Up</span></p>}
+
+            
         </form>
     </div>
   )
