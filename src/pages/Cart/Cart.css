@@ -15,3 +15,11 @@
 .cart-items-item img{
     width: 50px;
 }
+.cart hr{
+    height: 1px;
+    background-color: #e2e2e2;
+    border: none;
+}
+.cart-items-item .cross{
+    cursor: pointer;
+}
