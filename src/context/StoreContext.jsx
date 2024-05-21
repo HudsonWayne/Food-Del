@@ -37,16 +37,35 @@ const StoreContextProvider = (props) => {
     setCartItems((prev) => ({ ...prev, [itemId]: -1 }));
   };
 
+  // const getTotalCartAmount = () => {
+  //   let totalAmount = 0;
+  //   for (const item in cartItems) {
+  //     if (cartItems[item] > 0) {
+  //       let itemInfo = food_list.find((product) => product._id === item);
+  //       totalAmount += itemInfo * cartItems[item];
+  //     }
+  //   }
+  //   return totalAmount
+  // };
   const getTotalCartAmount = () => {
     let totalAmount = 0;
-    for (const item in cartItems) {
-      if (cartItems[item] > 0) {
-        let itemInfo = food_list.find((product) => product._id === item);
-        totalAmount += itemInfo * cartItems[item];
+    for (const itemId in cartItems) {
+      const itemQuantity = cartItems[itemId]; // Get the quantity for the current item ID
+      if (itemQuantity > 0) {
+        // Find the corresponding item in the food_list using its ID
+        const itemInfo = food_list.find((item) => item._id === itemId);
+        if (itemInfo) {
+          // Ensure item exists before adding to total
+          totalAmount += itemInfo.price * itemQuantity;
+        } else {
+          console.warn(`Item with ID "${itemId}" not found in food_list.`);
+        }
       }
     }
-    return totalAmount
+  
+    return totalAmount;
   };
+
 
   const contextValue = {
     food_list,
