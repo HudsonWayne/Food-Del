@@ -26,16 +26,29 @@ const Cart = () => {
                   <div key={item._id_}  className="cart-items-title cart-items-item">
                   <img src={item.image} alt="" />
                   <p>{item.name}</p>
-                  <p>{item.price}</p>
+                  <p>${item.price}</p>
                   <p>{cartItems[item._id]}</p>
-                  <p>{item.price*cartItems[item._id]}</p>
-                  <p className='cross'>x</p>
+                  <p>${item.price*cartItems[item._id]}</p>
+                  <p onClick={(()=>removeFromCart(item._id))} className='cross'>x</p>
                 </div>
                 <hr />
                 </div>
               )
              }
         })}
+      </div>
+      <div className="cart-button">
+        <div className="cart-total">
+          <h2>Cart total</h2>
+          <div>
+            <div className="cart-total-details">
+              <p>Subtotal</p>
+              <p></p>
+            </div>
+            <div className="cart-total-details"></div>
+            <div className="cart-total-details"></div>
+          </div>
+        </div>
       </div>
     </div>
   )
