@@ -1,9 +1,9 @@
-import './Cart.css'
-import { StoreContext } from '../../context/StoreContext'
-import { useContext } from 'react';
+import "./Cart.css";
+import { StoreContext } from "../../context/StoreContext";
+import { useContext } from "react";
 
 const Cart = () => {
-  const {cartItems,food_list,removeFromCart} = useContext(StoreContext);
+  const { cartItems, food_list, removeFromCart } = useContext(StoreContext);
 
   return (
     <div className="cart">
@@ -18,23 +18,27 @@ const Cart = () => {
         </div>
         <br />
         <hr />
-        {food_list.map((item, index)=>{
-            if(cartItems[item._id]>0)
-             {
-              return(
-                <div key={item._id_}>
-                  <div key={item._id_}  className="cart-items-title cart-items-item">
+        {food_list.map((item, index) => {
+          if (cartItems[item._id] > 0) {
+            return (
+              <div key={item._id_}>
+                <div
+                  key={item._id_}
+                  className="cart-items-title cart-items-item"
+                >
                   <img src={item.image} alt="" />
                   <p>{item.name}</p>
                   <p>${item.price}</p>
                   <p>{cartItems[item._id]}</p>
-                  <p>${item.price*cartItems[item._id]}</p>
-                  <p onClick={(()=>removeFromCart(item._id))} className='cross'>x</p>
+                  <p>${item.price * cartItems[item._id]}</p>
+                  <p onClick={() => removeFromCart(item._id)} className="cross">
+                    x
+                  </p>
                 </div>
                 <hr />
-                </div>
-              )
-             }
+              </div>
+            );
+          }
         })}
       </div>
       <div className="cart-button">
@@ -43,19 +47,38 @@ const Cart = () => {
           <div>
             <div className="cart-total-details">
               <p>Subtotal</p>
-              <p></p>
+              <p>{0}</p>
             </div>
-            <div className="cart-total-details"></div>
-            <div className="cart-total-details"></div>
+            <hr />
+            <div className="cart-total-details">
+              <p>Delivery</p>
+              <p>{2}</p>
+            </div>
+            <hr />
+            <div className="cart-total-details">
+              <b>Total</b>
+              <b>{0}</b>
+            </div>
+          </div>
+          <button>PROCEED TO CHECKOUT</button>
+        </div>
+        <div className="cart-promocode">
+          <div>
+            <p>If you have a promo code, enter it here.</p>
+            <div>
+              <div className="cart-promocode-input">
+                <input type="text" placeholder="promo code"/>
+                <button>Submit</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Cart
-
+export default Cart;
 
 // import './Cart.css';
 // import { StoreContext } from '../../context/StoreContext'; // Assuming context is defined here
@@ -95,4 +118,3 @@ export default Cart
 // };
 
 // export default Cart;
-
