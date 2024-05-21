@@ -26,3 +26,10 @@
     display: flex;
     gap: 10px;
 }
+.place-order-right{
+    width: 100%;
+    max-width: max(40%, 500px);
+}
+.place-order .cart-total button{
+    margin-top: 30px;
+}
